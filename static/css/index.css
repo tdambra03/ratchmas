@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:400,200,700");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Source Code Pro', monospace;
+}
+.header {
+  background: url("/image/ratchmas.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.header .page-title {
+  font-weight: 200;
+  font-size: 80px;
+  text-align: center;
+  padding: 150px;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 25px 0px;
+}
+.nav {
+  background: gray;
+  text-align: center;
+}
+.nav li {
+  display: inline-block;
+}
+.nav a {
+  display: inline-block;
+  padding: 20px;
+  color: #fff;
+  text-decoration: none;
+}
+.nav a:hover {
+  background-color: #0b6737;
+  color: red;
+  text-decoration: underline;
+}
+.main-content {
+  margin: 50px auto;
+  max-width: 80%;
+}
+.main-content p {
+  line-height: 1.6;
+  margin-bottom: 1.7em;
+  text-align: center;
+}
+.center {
+  margin: 0 auto;
+}
+.centerText {
+  text-align: center !important;
+}
+.footer {
+  margin: 50px auto;
+  max-width: 600px;
+  border-top: 1px solid #444;
+  padding: 20px 0;
+}
+.footer p {
+  color: #444;
+  font-size: 14px;
+}
