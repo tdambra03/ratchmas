@@ -3,13 +3,15 @@ var express = require('express')
   , app = express()
   , template = require('jade').compileFile(__dirname + '/source/templates/homepage.jade')
   , templateRSVP = require('jade').compileFile(__dirname + '/source/templates/rsvp.jade')
+  , templateDrinks = require('jade').compileFile(__dirname + '/source/templates/menu.jade')
 
 app.use(logger('dev'))
 app.use(express.static(__dirname + '/static'))
 
 app.get('/', function (req, res, next) {
   try {
-    var html = template({ title: 'Home' })
+    console.log(req.url);
+    var html = template({ title: 'Home' , path: 'index'})
     res.send(html)
   } catch (e) {
     next(e)
@@ -18,7 +20,16 @@ app.get('/', function (req, res, next) {
 
 app.get('/rsvp', function (req, res, next) {
   try {
-    var html = templateRSVP({ title: 'RSVP' })
+    var html = templateRSVP({ title: 'RSVP' , path: 'rsvp'})
+    res.send(html)
+  } catch (e) {
+    next(e)
+  }
+})
+
+app.get('/menu', function (req, res, next) {
+  try {
+    var html = templateDrinks({ title: 'Drinks' , path: 'menu'})
     res.send(html)
   } catch (e) {
     next(e)
