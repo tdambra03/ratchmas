@@ -1,7 +1,18 @@
 doctype html
 html
   head
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    script(async src="https://www.googletagmanager.com/gtag/js?id=UA-130483038-1")
+    script.
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-130483038-1');
+
+
     link(rel='stylesheet', href='/css/index.css')
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
     <link rel="apple-touch-icon" sizes="57x57" href="/image/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/image/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/image/apple-icon-72x72.png">
@@ -19,33 +30,52 @@ html
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/image/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     title 5th Annual Ratchmas
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    script.
+      function myFunction() {
+        var x = document.getElementById("dropdown");
+        if (x.style.display === "block") {
+          x.style.display = "none";
+        } else {
+          x.style.display = "block";
+        }
+      }
+
+      $(window).scroll(function(e){ 
+        var $el = $('.fixedElement'); 
+        var isPositionFixed = ($el.css('position') == 'fixed');
+        if ($(this).scrollTop() > 200 && !isPositionFixed){ 
+          $el.css({'position': 'fixed', 'top': '0px'}); 
+        }
+        if ($(this).scrollTop() < 200 && isPositionFixed){
+          $el.css({'position': 'static', 'top': '0px'}); 
+        } 
+      });
   body
     .header
-      h1.page-title
+      a(href='/')
+        h1.page-title
+      ul.mobileNav
+        li(onclick='myFunction()')
+          a(href="javascript:void(0);") Menu
+          ul#dropdown.dropdown
+            li(onclick='myFunction()'): a(href='/' onclick='myFunction()') Home
+            li(onclick='myFunction()'): a(href='/#details' onclick='myFunction()') Details
+            li(onclick='myFunction()'): a(href='/rsvp' onclick='myFunction()') RSVP
 
     ul.nav
       li: a(href='/') Home
-      li: a(href='#details') Details
+      li: a(href='/#details') Details
       //- li: a(href='#about') Food & Drink
       li: a(href='/rsvp') RSVP
+
     
     .main-content
       block content
 
-    #details.footer
-      h1.centerText DETAILS
-      </br>
-      h3.centerText DATE  
-      p.centerText Saturday, December 15, 2019   
-      </br>
-      h3.centerText TIME     
-      p.centerText 7:30 PM   
-      </br>
-      h3.centerText LOCATION        
-      p.centerText 3721 N. Clifton Ave.
-      p.centerText Unit 2 
-      p.centerText Chicago, IL 60613
-      </br>
-      div.centerText
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2967.355628430673!2d-87.65939668468542!3d41.949695868909934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd3b344a07827%3A0x8e2dfb7439534eb4!2s3721+N+Clifton+Ave+%232%2C+Chicago%2C+IL+60613!5e0!3m2!1sen!2sus!4v1543359578859" width="300" height="225" frameborder="0" style="border:0" allowfullscreen></iframe>
+    .footer
+      p.centerText.Small RATCHMAS 2018  &copy;
+
